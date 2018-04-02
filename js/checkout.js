@@ -1,6 +1,7 @@
 /*Local Storage Products Object Array*/
 let product = localStorage.getItem('productDetails');
 productDetails= JSON.parse(product);
+console.log(productDetails)
 // local Storage Counter
 let cartItemCounter = localStorage.getItem('cartCounter');
 cartCounter = parseInt(cartItemCounter);
@@ -16,10 +17,18 @@ localStorage.setItem('counterInIndex', cartCounter.toString());
 /**/
 
 
-const removeCard = (event, id) => {
-    console.log(event.target.parentNode.parentNode.parentNode.id);
+const removeCard = (event) => {
+    let idToRemove = event.target.parentNode.parentNode.parentNode.id;
+    let indexToRemove = '';
+    productDetails.forEach(function(element, index){
+        if(element.productId === idToRemove){
+            indexToRemove = index;
+        }
+    })
+    productDetails.splice(indexToRemove, 1);
+    console.log(productDetails);
+    localStorage.setItem('productDetailRemoved', JSON.stringify(productDetails));
     let cardToRemove = event.target.offsetParent.offsetParent.offsetParent;
-    // console.log(id);
     cardToRemove.innerHTML = " ";
 }
 
@@ -28,29 +37,29 @@ let shippingCost = 3.76;
 const showResume = total => {
     totalPrice = total;
     let resumeCard = ` `;
-    resumeCard = `<thead>
+    resumeCard = `<thead class="color-table-checkout col-md-12">
                     <tr>
-                        <th>
-                            <h3>Resumen</h3>
+                        <th >
+                            <h3>Resumen Pago</h3>
                         </th>
                     </tr>
                 </thead>
             
-                <tbody>
-                    <tr>
-                        <td>SUBTOTAL:</td>
-                        <td>$${totalPrice}</td>
+                <tbody class="col-md-12">
+                    <tr class="row">
+                        <td class="col-md-6">SUBTOTAL:</td>
+                        <td class="col-md-6">$${totalPrice}</td>
                     </tr>
-                    <tr>
-                        <td>Costo de envío:</td>
-                        <td>$${shippingCost}</td>
+                    <tr class="row">
+                        <td class="col-md-6">Costo de envío:</td>
+                        <td class="col-md-6">$${shippingCost}</td>
                     </tr>
-                    <tr>
-                        <td>TOTAL:</td>                        
-                        <td>$${totalPrice + shippingCost}</td>
+                    <tr class="row">
+                        <td class="col-md-6">TOTAL:</td>                        
+                        <td class="col-md-6">$${totalPrice + shippingCost}</td>
                     </tr>
-                    <tr>
-                        <td><div id="paypal-button"></div></td>                        
+                    <tr class="row">
+                        <td class="col-md-12"><div id="paypal-button"></div></td>                        
                         
                     </tr>
                 </tbody>`
@@ -60,25 +69,24 @@ const showResume = total => {
 const calculateTotal = productDetails => {
   let tableTemplate = ` `;
   let totalGap = ` `;
-
+ console.log(productDetails)
   productDetails.forEach(product => {
-    totalPrice += parseInt(product.productPrice);
-    
+      totalPrice += parseInt(product.productPrice);
     tableTemplate += `<tr>
                         <td>
-                            <div id="${product.productId}" class="card horizontal">
-                                <div class="card-image">
-                                    <img src="https://lorempixel.com/100/100/nature/6">
+                            <div id="${product.productId}" class="panel panel-default row">
+                                <div class="col-md-4">
+                                    <img src="https://lorempixel.com/200/200/city/6">
                                 </div>
-                                <div class="card-stacked">
-                                    <div class="card-content">
-                                        <h5 class="card-title">${product.productName}</h5>
-                                        <p>Código del Artículo:</p>
-                                        <p>Disponible:</p>
-                                        <p>Precio: $ ${product.productPrice}</p>
+                                <div class="col-md-8">
+                                    <div class="panel-body">
+                                        <h5 class="panel-title">${product.productName}</h5>
+                                        <p>Código del Artículo: ${product.productId}</p>
+                                        <p>Disponible: In Stock</p>
+                                        <p>Precio: ${product.productPrice} MXN</p>
                                     </div>
-                                        <div class="card-action">
-                                            <button class="bnt">Eliminar</button>
+                                        <div class="panel-footer">
+                                            <button class="bnt item_add single-but">Eliminar</button>
                                         </div>
                                 </div>
                             </div>

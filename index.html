@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+<title>Pandora Store</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.11.0.min.js"></script>
@@ -49,18 +49,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="top-header-main">
 			<div class="col-md-4 top-header-left ">
 				<!-- cambiar el logo -->
-				<a href="index.html"><img src="images/logo-4.png" alt="" /></a>
+				<a href="index.html"><img class="logo-size" src="images/logoPandoraok.png" alt="" /></a>
 			</div>
 			<!-- id Form. Habia un forma aqui -->
-			<form id="search-form" class="text-right">
-				<div class="col-md-4 col-md-offset-2 col-md-push-2">
+			<div class="col-md-4 col-md-offset-1 col-md-push-1">			
+				<form id="search-form" >
 					<div class="search-bar">
 						<input id="search-key-word" type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
 						<!-- id boton de busqueda -->
 						<input id="submit-btn" type="submit" value="">
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 			<div class="col-md-2 top-header-right ">
 				<div class="cart box_1">
 
@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h3> <div class="total">
 							<span></span> (<span id="items-counter"></span> items)</div>
 
-							<img src="images/cart-1.png" alt="" />
+							<img src="images/carbuy.png" alt="" />
 							<!-- <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" id="items-counter" class="simpleCart_quantity"></span> items)</div>
 							<img src="images/cart-1.png" alt="" /> -->
 						</a>
@@ -133,22 +133,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!--bottom-header-->
 	<!--banner-starts-->
-	<div class="bnr" id="home">
-		<div  id="top" class="callbacks_container">
-			<ul class="rslides" id="slider4">
-			    <li>
-					<div class="banner-1"></div>
-				</li>
-				<li>
-					<div class="banner-2"></div>
-				</li>
-				<li>
-					<div class="banner-3"></div>
-				</li>
-			</ul>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
+	<!--banner-starts-->
+    <div class="bnr" id="home">
+        <div  id="top" class="callbacks_container">
+            <ul class="rslides" id="slider4">
+                <li>
+                    <div class="banner-1">
+                        <div class="tex-banner">    
+                            <h3>Todos los objetos que quieres coleccionar están aquí</h3>
+                            <h6>La oportunidad para comenzar a ser un gran coleccionista</h6>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-2">
+                        <div class="tex-banner">    
+                            <h3>Tenemos lo que te hace falta para tu colección</h3>
+                            <h6>Los libros que siempre quisiste tener</h6>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-3">
+                        <div class="tex-banner">
+                            <h3>Tus objetos más preciados en manos de expertos</h3>
+                            <h6>Nuestras categorias son exclusivas</h6>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!--banner-ends-->
 	<!--banner-ends--> 
 	<!--Slider-Starts-Here-->
 				<script src="js/responsiveslides.min.js"></script>
@@ -175,21 +192,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--End-slider-script-->
 	<!--start-bottom-shop--> 
 	<div id="mySidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a id="aPadding" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-		<!-- <div id="total-price-nav"></div> -->
-		<div id="product-container"></div>
-	  </div>
+		<div id="total-price-nav" class="divPadding"></div>
+		<div id="product-container" class="divPadding"></div>
+		<div id="price-breakdown" class="divPadding"></div>
+	</div>
 
 	  
 	<div id="main">
-		<span class='flotante' style="font-size:30px;cursor:pointer" onclick="openNav()"><img src="images/cart-1.png"> </span>
+		<span class='flotante' style="font-size:30px;cursor:pointer" onclick="openNav()"><img src="images/carbuy1.png"> </span>
 	</div>
 	<!--end-bottom-shop-->
 	<div class="banner-bottom">
 		<div class="container">
 			<div class="banner-bottom-top">
-				<h1 class="text-center">Los mejores productos coleccionables en un solo sitio</h1>
+				<img class ="banner-size"src="images/separador.png" alt="">
 			</div>
 		</div>
 	</div>
@@ -197,122 +215,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="shoes"> 
 		<div class="container"> 
 			<div id="site-container" class="product-one">
-				<!-- <div class="col-md-3 product-left"> 
-					<div class="p-one simpleCart_shelfItem">							
-							<a href="single.html">
-								<img src="images/shoes-1.png" alt="" />
-								<div class="mask">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4>Aenean placerat</h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-					
-					</div>
-				</div> -->
-				<!-- <div class="col-md-3 product-left"> 
-					<div class="p-one simpleCart_shelfItem">
-						
-						<a href="single.html">
-								<img src="images/shoes-2.png" alt="" />
-								<div class="mask">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4>Aenean placerat</h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-						
-					</div>
-				</div>
-				<div class="col-md-3 product-left"> 
-					<div class="p-one simpleCart_shelfItem">
-						
-						<a href="single.html">
-								<img src="images/shoes-3.png" alt="" />
-								<div class="mask">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4>Aenean placerat</h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-						
-					</div>
-				</div>
-				<div class="col-md-3 product-left"> 
-					<div class="p-one simpleCart_shelfItem">
-						
-						<a href="single.html">
-								<img src="images/shoes-13.png" alt="" />
-								<div class="mask">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4>Aenean placerat</h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-						
-					</div>
-				</div> -->
 				<div class="clearfix"> </div>
 			</div>
-			<!-- <div class="product-one">
-				<div class="col-md-3 product-left"> 
-					<div class="p-one simpleCart_shelfItem">
-						
-						<a href="single.html">
-								<img src="images/shoes-5.png" alt="" />
-								<div class="mask">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4>Aenean placerat</h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-						
-					</div>
-				</div>
-				<div class="col-md-3 product-left"> 
-					<div class="p-one simpleCart_shelfItem">
-						
-						<a href="single.html">
-								<img src="images/shoes-6.png" alt="" />
-								<div class="mask">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4>Aenean placerat</h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-						
-					</div>
-				</div>
-				<div class="col-md-3 product-left"> 
-					<div class="p-one simpleCart_shelfItem">
-						
-						<a href="single.html">
-								<img src="images/shoes-7.png" alt="" />
-								<div class="mask">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4>Aenean placerat</h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-						
-					</div>
-				</div>
-				<div class="col-md-3 product-left"> 
-					<div class="p-one simpleCart_shelfItem">
-						
-						<a href="single.html">
-								<img src="images/shoes-8.png" alt="" />
-								<div class="mask">
-									<span>Quick View</span>
-								</div>
-							</a>
-						<h4>Aenean placerat</h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-						
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div> -->
 		</div>
 	</div>
 	<!--end-shoes-->
@@ -320,29 +224,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="abt-shoe">
 		<div class="container"> 
 				<a href="#"><img src="images/mes-libro.jpg" alt="" /></a>
-			<!-- <div class="abt-shoe-main">
-				<div class="col-md-4 abt-shoe-left">
-					<div class="abt-one">
-						<a href="single.html"><img src="images/abt-1.jpg" alt="" /></a>
-						<h4><a href="single.html">Cras dolor ligula</a></h4>
-						<p>Phasellus auctor vulputate egestas. Nulla facilisi. Cras dolor ligula, pharetra vitae efficitur ac, tempus vitae nisl. Aliquam erat volutpat. </p>
-					</div>
-				</div>
-				<div class="col-md-4 abt-shoe-left">
-					<div class="abt-one">
-						<a href="single.html"><img src="images/abt-2.jpg" alt="" /></a>
-						<h4><a href="single.html">Cras dolor ligula</a></h4>
-						<p>Phasellus auctor vulputate egestas. Nulla facilisi. Cras dolor ligula, pharetra vitae efficitur ac, tempus vitae nisl. Aliquam erat volutpat. </p>
-					</div>
-				</div>
-				<div class="col-md-4 abt-shoe-left">
-					<div class="abt-one">
-						<a href="single.html"><img src="images/abt-3.jpg" alt="" /></a>
-						<h4><a href="single.html">Cras dolor ligula</a></h4>
-						<p>Phasellus auctor vulputate egestas. Nulla facilisi. Cras dolor ligula, pharetra vitae efficitur ac, tempus vitae nisl. Aliquam erat volutpat. </p>
-					</div>
-				</div> -->
-
 				<div class="clearfix"> </div>
 			</div>
 		</div>
@@ -388,11 +269,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--end-footer-->
 	<!--end-footer-text-->
 	<div class="footer-text">
-		<div class="container">
-			<div class="footer-main">
-				<p class="footer-class">© 2015 Free Style All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-			</div>
-		</div>
 		<script type="text/javascript">
 									$(document).ready(function() {
 										/*
@@ -418,7 +294,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a class="cerrar" href="">X</a>
 			</div>
 			<div id="over_view" class="single contact back-modal col-md-offset-1">
-				<div class="container">
+				<div class="container-modal">
 					<div class="single-main">
 						<div class="col-md-2 col-md-offset-2 single-main-left">
 							<div class="sngl-top">
@@ -440,7 +316,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<span id="prices" class="actual item_price">$600.00</span>
 									</div>
 									<h2 class="quick">Quick Overview:</h2>
-									<p class="quick_desc">Uno de los últimos productos en existencia, condiciones de primera.</p>
+									<h5 class="quick_desc"><strong>Uno de los últimos productos en existencia, condiciones de primera.</strong></h5>
 
 									<div class="quantity_box">
 										<ul class="product-qty">

@@ -38,9 +38,18 @@
     height: 100%;
 }
 
+.size-modal-image {
+    width: 100px;
+    height: 100px;
+}
+
+.container-modal {
+    margin-left: 40px;
+    width: 100%;
+}
 .back-modal {
-    width: 85%;
-    height: 100%;
+    width: 80%;
+    height: 60%;
     background-color: #fff;
     justify-content: center;
     align-items: center;
@@ -64,7 +73,7 @@
 
 /* Start Style button fixed shop */
 body {
-    font-family: "Lato", sans-serif;
+    font-family: 'Alegreya Sans SC', sans-serif;
     transition: background-color .5s;
 }
 
@@ -125,4 +134,76 @@ body {
   .sidenav a {font-size: 18px;}
 }
 
+/*styles sideBar*/
+.divPadding {
+    padding: 20px;
+}
 
+#total-price-nav {
+    background-color:black;
+    color: white;
+    text-align: center;
+}
+
+#mySidenav, #aPadding {
+    padding-top: 0;
+}
+
+.color-table-checkout {
+    background-color: rgb(202, 192, 149);
+    color: black;
+}
+
+/* tamaño de los banner */
+.banner-size {
+    width: 100%;
+}
+
+.logo-size{
+    height: 110px;
+}
+
+
+.logo-size-checkout{
+    height: 50px;
+}
+
+.color-card {
+    background-color: rgb(202, 192, 149);
+}
+
+.style-pay-btn {
+    height: 40px;
+    width: 150px;
+    color:white;
+    background-color:rgb(238, 83, 26);
+}
+
+.a-padding {
+    padding: 0px !important; 
+    color: white !important;
+    font-size: 20px !important;
+}
+
+/*Style text carousel*/
+
+.tex-banner{
+   background-color: #111;
+   opacity: 0.8;
+   color:whitesmoke;
+   text-align: center;
+   margin bottom :20px;
+
+}
+
+h3{
+   font-size: 2.5em;
+}
+
+h6{
+   font-size: 1.5em;
+   color:white;
+
+}
+
+/*End text carousel*/

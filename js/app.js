@@ -5,7 +5,10 @@ $(document).ready(function(){
 
   });
 
-  
+  /*test*/
+  let newArray = localStorage.getItem('productDetailRemoved');
+  productDetailRemoved = JSON.parse(newArray);
+  console.log(productDetailRemoved);
 
   const apiLoadFirst = () => {
     fetch(`https://cors-anywhere.herokuapp.com/https://api.mercadolibre.com/sites/MLM/search?q=articulos de coleccion`, )
@@ -33,7 +36,12 @@ let barContainer = document.getElementById('product-container');
 //Cart LocalStorage from Checkout
 let cartItemCounterIndex = localStorage.getItem('counterInIndex');
 counterInIndex = parseInt(cartItemCounterIndex);
-carCounter.innerText = counterInIndex
+carCounter.innerText = parseInt(counterInIndex);
+
+/*TOTAL PRICE IN SIDE BAR*/
+let totalPriceTitle = document.getElementById('total-price-nav');
+let priceBDown = document.getElementById('price-breakdown');
+
 // const showInitialCounter => {
 //   if(counterInIndex === NaN) {
 //     carCounter.innerText = '0';
@@ -60,14 +68,6 @@ function closeNav() {
 }
 
 // end function button fixed shop
-
-
-
-
-
-
-
-
 
 const apiMercadolibre = () => {
     fetch(`https://cors-anywhere.herokuapp.com/https://api.mercadolibre.com/users/306970587/`)
@@ -103,12 +103,36 @@ const apiLoad = () => {
         });
 };
 
+let shippingCost = 3.76;
 let totalPrice = 0;
-const showInSideBar = productsArray => {
-  let carTemplate = ` `;
 
-  productsArray.forEach(product => {
-    totalPrice += parseInt(product.productPrice);
+const showPrice = priceArray => {
+  let artNum = priceArray.length;
+  priceArray.forEach(function(price){
+    totalPrice += parseInt(price);
+  })
+
+  let price = ` `;
+  price = `
+  <p>${artNum} Articulos</p>
+  <h3>TOTAL: ${totalPrice} MXN</h3>
+  <button class=' style-pay-btn'><a class='a-padding' href='views/ourcheckout.html'>IR AL CARRITO</a></button>`
+  totalPriceTitle.innerHTML = price;
+
+  let priceBreakdown = ` `;
+  priceBreakdown = `
+  <p class="text-right"><strong>Subtotal:      </strong><span>${totalPrice} MXN</span></p>
+  <p class="text-right"><strong>Costo de Envío:      </strong><span>${shippingCost} MXN</span></p>
+  <h4 class="text-right"><strong>TOTAL: ${totalPrice + shippingCost}MXN</strong></h4>
+  `
+  priceBDown.innerHTML = priceBreakdown;
+}
+
+let priceArray = [];
+const showInSideBar = itemsArray => {
+  let carTemplate = ` `;
+  itemsArray.forEach(product => {
+    priceArray.push(product.productPrice);
     carTemplate += `
     <div>
       <p>${product.productName}</p>
@@ -117,20 +141,9 @@ const showInSideBar = productsArray => {
     </div>
     `
     barContainer.innerHTML = carTemplate;
-    console.log(barContainer);
     })
-  // showNavPrice(totalPrice);
+  showPrice(priceArray);
 }
-
-// const showNavPrice = totalPrice => {
-//   let priceTemplate += ` `;
-//   priceTemplate = `
-//   <p>${counter} Artículos</p>
-//   <h3>Total: ${totalPrice}</h3>
-//   <button>IR AL CARRITO</button>
-//   ` 
-// }
-
 
 
 let itemsArray = [];
@@ -140,30 +153,39 @@ const addToCar = (id, title, price) => {
         productName: title,
         productPrice: price
     }
-
     let productDetails = product;
     console.log(productDetails);
     itemsArray.push(productDetails);
+    priceArray = [];
     showInSideBar(itemsArray);
     localStorage.setItem('productDetails', JSON.stringify(itemsArray));
+}
 
-} 
+
+
+
+const showCounter = counter => {
+  localStorage.setItem('cartCounter', counter.toString());
+}
 
 const increaseCounter = (id, title, price) => {
   counter += 1;
   carCounter.innerText = counter;
-  console.log(counter);
+  // console.log(counter);
   console.log(title, price);
   addToCar(id, title, price);
+  showCounter(counter);
 }
 
 const decreaseCounter = () => {
   counter -= 1;
   carCounter.innerText = counter;
   console.log(counter);
+  showCounter(counter);
 }
 
 const changeButtonStatus = event => {
+    
     let element = event.target
     let buttonText = element.firstChild.data;
     let itemId = element.dataset.id;
@@ -173,6 +195,7 @@ const changeButtonStatus = event => {
     if(buttonText === "Agregar a carrito") {
         element.innerText = "Remover del carrito";
         increaseCounter(itemId, itemTitle, itemPrice);
+        element.classList.add('item_added')
     } else {
         element.innerText = "Agregar a carrito";
         decreaseCounter();
@@ -198,10 +221,11 @@ const showModal=(event)=>{
 const fillmodal=(id, imagen, price, title)=>{
     const imgCont=document.getElementById("image")
     imgCont.setAttribute("src",imagen);
+    imgCont.classList.add("size-modal-image");
     const titleModal=document.getElementById("nombre-producto")
      titleModal.innerText=title;
      const priceModal=document.getElementById("prices")
-     priceModal.innerHTML=price+ "MXN";
+     priceModal.innerHTML=price+ ' '+ "MXN";
     const containerModal=document.getElementById("modal-product");
   
 }
@@ -217,15 +241,15 @@ const paintItems = (result) => {
         const addres=item.address.state_name;
        const title=item.title;
         const image=item.thumbnail;
-        templateProducts += `<div class="col-md-3 product-left"> 
-        <div class="p-one simpleCart_shelfItem">							
+        templateProducts += `<div class="col-md-3 product-left "> 
+        <div class="p-one simpleCart_shelfItem color-card">							
                     <img src="${image}" alt="" />
                     <div class="mask">
                       <button class="item_add" type="button" onClick=showModal(event) data-image=${image} data-title='${item.title}' data-price=${item.price} data-id=${id}>Quick View</button>
                     </div>
             <h4 class="short-text">${item.title}</h4>
             <p><a href="#"><i></i> <span class="item_price">${item.price} MXN</span></a></p>
-            <button class="item_add single-but" data-id="${id}" data-title=${title} data-price="${item.price}" onclick="changeButtonStatus(event)" type="" name="action">Agregar a carrito</button>
+            <button class="item_add single-but" data-id="${id}" data-title="${title}" data-price="${item.price}" onclick="changeButtonStatus(event)" type="" name="action">Agregar a carrito</button>
 
         </div>
     </div>
