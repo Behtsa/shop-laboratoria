@@ -48,3 +48,5 @@ Este reto se utilizaron las siguientes herramientas, materiales y fuentes:
 ![Pandora](./images/screen2.png)
 ![Pandora](./images/screen3.png)
 
+*Developed for Laboratoria
+
