@@ -15,7 +15,7 @@
 
 El reto consiste en desarrollar una solución digital, para la compra y venta de artículos de colección utilizando por menos dos apis, en nuestro caso mercado libre y paypal:
 
-![Pandora](./images/logopandoraok.png)
+![imagen3](https://user-images.githubusercontent.com/9289461/38947769-65015e74-4303-11e8-88ff-3ec82f96a133.png)
 
 
 ## Detalles adicionales
